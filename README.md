@@ -1,4 +1,4 @@
-# js-php-swiss-cantons
+# js-swiss-cantons
 
 Find a Swiss canton by it's abbreviation or name
 
