@@ -33,7 +33,7 @@
     "dependencies": {},
     "ava": {
         "files": [
-            "test/*.js"
+            "test/**/*.js"
         ],
         "source": [
             "**/*.{js}",
