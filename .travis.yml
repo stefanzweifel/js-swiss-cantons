@@ -1,6 +1,3 @@
-language: node
-
-install:
-  - yarn install;
-
-script: npm run test
+language: node_js
+node_js:
+    - 'stable'
