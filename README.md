@@ -61,7 +61,11 @@ npm run build
 
 ## Deployment
 
-> TBD
+
+```shell
+npm update patch | minor | major
+npm publish
+```
 
 ## Built With
 
@@ -80,4 +84,4 @@ See also the list of [contributors](https://github.com/stefanzweifel/js-swiss-ca
 
 ## Acknowledgments
 
-> TBD
+- [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons))
