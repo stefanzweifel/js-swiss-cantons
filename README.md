@@ -1,6 +1,6 @@
-# js-swiss-cantons
+# 🇨🇭 js-swiss-cantons
 
-Find a Swiss canton by it's abbreviation or name
+Find Swiss canton by it's abbreviation or name. (This is a port of [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons))
 
 ## Getting Started
 
