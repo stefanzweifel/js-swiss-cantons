@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 In order to work on this package you should have `npm`, `yarn` and `ava` installed globally.
 
 ```shell
-https://github.com/stefanzweifel/js-swiss-cantons.git
+git clone https://github.com/stefanzweifel/js-swiss-cantons.git
 ```
 
 ### Installing
@@ -25,10 +25,20 @@ https://github.com/stefanzweifel/js-swiss-cantons.git
 You should install the package with `yarn` or `npm` in your project.
 
 ```shell
-yarn add https://github.com/stefanzweifel/js-swiss-cantons.git
+npm install @stefanzweifel/js-swiss-cantons
 ```
 
-> TBD: How to use the package
+```javascript
+import CantonManager from '@stefanzweifel/js-swiss-cantons';
+
+let manager = new CantonManager;
+let canton = manager.getByAppreviation('SH');
+let canton = manager.getByName('Schaffhausen');
+
+console.log(
+    canton.setLanguage('de').getName(), // Schaffhausen
+);
+```
 
 End with an example of getting some data out of the system or using it for a little demo
 

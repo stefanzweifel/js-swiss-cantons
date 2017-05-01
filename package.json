@@ -2,7 +2,7 @@
     "name": "@stefanzweifel/js-swiss-cantons",
     "version": "1.0.0",
     "description": "Search for Swiss Canton by abbreviation or name",
-    "main": "src/index.js",
+    "main": "src/CantonManager.js",
     "scripts": {
         "build": "NODE_ENV=production webpack --config webpack.config.js",
         "dev": "NODE_ENV=development webpack --config webpack.config.js --progress --colors --watch",
