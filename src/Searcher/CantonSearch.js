@@ -20,8 +20,22 @@ export default class {
         return new canton(result[0]);
     }
 
-    findByName() {
+    /**
+     * Find Canton by one of its names
+     * @param  {string} name
+     * @return {Canton}
+     */
+    findByName(name) {
 
+        let result = cantons.filter((value) => {
+            return Object.values(value.name).indexOf(name) !== -1;
+        });
+
+        if (result.length == 0) {
+            throw new Error(`No canton found for name ${name}`);
+        }
+
+        return new canton(result[0]);
     }
 
 }

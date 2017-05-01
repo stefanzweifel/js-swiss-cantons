@@ -160,14 +160,14 @@ export default [
         }
     },
     {
-        "abbreviation": "SH"
-        // "name": {
-        //     "de": "Schaffhausen",
-        //     "fr": "Schaffhouse",
-        //     "it": "Sciaffusa",
-        //     "rm": "Schaffusa",
-        //     "en": "Schaffhouse"
-        // }
+        "abbreviation": "SH",
+        "name": {
+            "de": "Schaffhausen",
+            "fr": "Schaffhouse",
+            "it": "Sciaffusa",
+            "rm": "Schaffusa",
+            "en": "Schaffhouse"
+        }
     },
     {
         "abbreviation": "SO",
