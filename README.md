@@ -1,5 +1,11 @@
 # 🇨🇭 js-swiss-cantons
 
+<p align="center">
+    <a href="https://travis-ci.org/stefanzweifel/js-swiss-cantons" title="Build Status">
+        <img src="https://travis-ci.org/stefanzweifel/js-swiss-cantons.svg?branch=master" alt="Build Status">
+    </a>
+</p>
+
 Find Swiss canton by it's abbreviation or name. (This is a port of [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons))
 
 ## Getting Started
