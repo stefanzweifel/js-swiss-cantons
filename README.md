@@ -74,7 +74,7 @@ npm publish
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/2media/js-regio-parameters).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/2media/js-regio-parameters/releases).
 
 ## Authors
 
@@ -84,4 +84,4 @@ See also the list of [contributors](https://github.com/stefanzweifel/js-swiss-ca
 
 ## Acknowledgments
 
-- [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons))
+- [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons)
