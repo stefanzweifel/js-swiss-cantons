@@ -1,8 +1,6 @@
 language: node
 
 install:
-  - npm install --global nyc;
-  - npm install --global ava;
-  - npm install;
+  - yarn install;
 
 script: npm run test
