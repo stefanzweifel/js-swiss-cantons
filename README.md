@@ -28,6 +28,10 @@ You should install the package with `yarn` or `npm` in your project.
 npm install @stefanzweifel/js-swiss-cantons
 ```
 
+### Usage
+
+Currently there two methods available on the CantonManager Class: `getByAppreviation` and `getByName`.
+
 ```javascript
 import CantonManager from '@stefanzweifel/js-swiss-cantons';
 
