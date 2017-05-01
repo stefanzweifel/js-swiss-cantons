@@ -29,11 +29,13 @@ export default class {
     setLanguage(displayLanguage) {
         displayLanguage = displayLanguage.toLowerCase();
 
-        if (this.availableLanguages.indexOf(displayLanguage)) {
+        if (this.availableLanguages.indexOf(displayLanguage) === -1) {
             throw new Error(`Language ${displayLanguage} is not supported`);
         }
 
         this.displayLanguage = displayLanguage;
+
+        return this;
     }
 
     /**
