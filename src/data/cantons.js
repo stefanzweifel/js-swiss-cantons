@@ -5,7 +5,7 @@ export default [
             "de": "Aargau",
             "fr": "Argovie",
             "it": "Argovia",
-            "rm": "Appenzell dador",
+            "rm": "Argovia",
             "en": "Argovia"
         }
     },
@@ -253,7 +253,7 @@ export default [
         "abbreviation": "ZH",
         "name": {
             "de": "Zürich",
-            "fr": "Zürich",
+            "fr": "Zurich",
             "it": "Zurigo",
             "rm": "Turitg",
             "en": "Zurich"
