@@ -29,7 +29,7 @@
     "eslint": "^4.9.0",
     "eslint-loader": "^1.9.0",
     "nyc": "^10.2.0",
-    "webpack": "^2.4.1"
+    "webpack": "^3.8.1"
   },
   "dependencies": {},
   "ava": {
