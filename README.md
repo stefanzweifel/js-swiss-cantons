@@ -30,13 +30,13 @@ npm install @stefanzweifel/js-swiss-cantons
 
 ### Usage
 
-Currently there two methods available on the CantonManager Class: `getByAppreviation` and `getByName`.
+Currently there two methods available on the CantonManager Class: `getByAbbreviation` and `getByName`.
 
 ```javascript
 import CantonManager from '@stefanzweifel/js-swiss-cantons';
 
 let manager = new CantonManager;
-let canton = manager.getByAppreviation('SH');
+let canton = manager.getByAbbreviation('SH');
 let canton = manager.getByName('Schaffhausen');
 
 console.log(

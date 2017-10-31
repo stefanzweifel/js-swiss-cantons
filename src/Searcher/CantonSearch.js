@@ -8,7 +8,7 @@ export default class {
      * @param  {string} abbreviation
      * @return {Canton}
      */
-    findByAppreviation(abbreviation) {
+    findByAbbreviation(abbreviation) {
         let result = cantons.filter((value) => {
             return value.abbreviation === abbreviation.toUpperCase();
         });

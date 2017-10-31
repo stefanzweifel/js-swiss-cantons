@@ -7,9 +7,9 @@ export default class {
      * @param  {string} abbreviation
      * @return {Canton}
      */
-    getByAppreviation(abbreviation) {
+    getByAbbreviation(abbreviation) {
         let search = new CantonSearch;
-        return search.findByAppreviation(abbreviation);
+        return search.findByAbbreviation(abbreviation);
     }
 
     /**
@@ -31,7 +31,7 @@ export default class {
         let search = new CantonSearch;
 
         try {
-            return search.findByAppreviation(value);
+            return search.findByAbbreviation(value);
         }
         catch (e) {
             console.warn(e.message);
