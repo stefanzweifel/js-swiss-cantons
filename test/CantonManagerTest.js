@@ -3,7 +3,7 @@ import CantonManager from '../src/CantonManager.js';
 
 test('it_returns_canton_by_abbreviation', t => {
    let manager = new CantonManager;
-   let result = manager.getByAppreviation('NW');
+   let result = manager.getByAbbreviation('NW');
 
    t.is(result.getAbbreviation(), 'NW');
    t.is(result.setLanguage('de').getName(), 'Nidwalden');

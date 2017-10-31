@@ -3,7 +3,7 @@ import CantonSearch from '../../src/Searcher/CantonSearch.js';
 
 test('it_finds_canton_by_abbreviation', t => {
     let search = new CantonSearch;
-    let canton = search.findByAppreviation('SH');
+    let canton = search.findByAbbreviation('SH');
 
     t.is(canton.getAbbreviation(), 'SH');
 });
@@ -12,7 +12,7 @@ test('it_throws_error_if_no_canton_can_be_found_for_abbreviation', t => {
     let search = new CantonSearch;
 
     const error = t.throws(() => {
-        search.findByAppreviation('FOO-BAR');
+        search.findByAbbreviation('FOO-BAR');
     }, Error);
 
     t.is(error.message, 'No canton found for abbreviation FOO-BAR');
@@ -20,7 +20,7 @@ test('it_throws_error_if_no_canton_can_be_found_for_abbreviation', t => {
 
 test('it_set_abbreviation_to_uppercase', t => {
     let search = new CantonSearch;
-    let canton = search.findByAppreviation('gl');
+    let canton = search.findByAbbreviation('gl');
 
     t.is(canton.getAbbreviation(), 'GL');
 });
