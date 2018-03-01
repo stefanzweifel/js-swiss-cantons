@@ -4,8 +4,7 @@
   "description": "Search for Swiss Canton by abbreviation or name",
   "main": "src/CantonManager.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "NODE_ENV=development webpack --config webpack.config.js --progress --colors --watch",
+    "lint": "eslint 'src/**/*'",
     "test": "ava",
     "test-coverage": "nyc ava"
   },
@@ -29,7 +28,8 @@
     "eslint": "^4.16.0",
     "eslint-loader": "^2.0.0",
     "nyc": "^11.4.1",
-    "webpack": "^4.0.1"
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
   },
   "dependencies": {},
   "ava": {

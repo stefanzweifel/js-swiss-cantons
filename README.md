@@ -54,15 +54,6 @@ Tests are written with [ava](https://github.com/avajs/ava).
 npm run test
 ```
 
-### And coding style tests
-
-[Eslint](http://eslint.org/) is used to lint the Javascript code. The checks are executed while running webpack. So you can run one of the following commands.
-
-```shell
-npm run dev
-npm run build
-```
-
 ## Deployment
 
 
