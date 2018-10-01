@@ -6,7 +6,9 @@ export default [
             "fr": "Argovie",
             "it": "Argovia",
             "rm": "Argovia",
-            "en": "Argovia"
+            "en": "Argovia",
+            "es": "Argovia",
+            "pt": "Argóvia"
         }
     },
     {
@@ -16,7 +18,9 @@ export default [
             "fr": "Appenzell Rhodes-Intérieures",
             "it": "Appenzello Interno",
             "rm": "Appenzell dadens",
-            "en": "Appenzell Inner-Rhodes"
+            "en": "Appenzell Inner-Rhodes",
+            "es": "Appenzell Rodas Interior",
+            "pt": "Appenzell Interior"
         }
     },
     {
@@ -26,7 +30,9 @@ export default [
             "fr": "Appenzell Rhodes-Extérieures",
             "it": "Appenzello Esterno",
             "rm": "Appenzell dador",
-            "en": "Appenzell Outer-Rhodes"
+            "en": "Appenzell Outer-Rhodes",
+            "es": "Appenzell Rodas Exterior",
+            "pt": "Appenzell Exterior"
         }
     },
     {
@@ -36,7 +42,9 @@ export default [
             "fr": "Berne",
             "it": "Berna",
             "rm": "Berna",
-            "en": "Berne"
+            "en": "Berne",
+            "es": "Berna",
+            "pt": "Berna"
         }
     },
     {
@@ -46,7 +54,9 @@ export default [
             "fr": "Bâle-Campagne",
             "it": "Basilea Campagna",
             "rm": "Basilea-Champagna",
-            "en": "Basle-Country"
+            "en": "Basel-Country",
+            "es": "Basilea-Campiña",
+            "pt": "Basileia-Campo"
         }
     },
     {
@@ -56,7 +66,9 @@ export default [
             "fr": "Bâle-Ville",
             "it": "Basilea Città",
             "rm": "Basilea-Citad",
-            "en": "Basle-City"
+            "en": "Basel-City",
+            "es": "Basilea-Ciudad",
+            "pt": "Basileia-Cidade"
         }
     },
     {
@@ -66,7 +78,9 @@ export default [
             "fr": "Fribourg",
             "it": "Friburgo",
             "rm": "Friburg",
-            "en": "Friburg"
+            "en": "Friburg",
+            "es": "Friburgo",
+            "pt": "Friburgo"
         }
     },
     {
@@ -76,7 +90,9 @@ export default [
             "fr": "Genève",
             "it": "Ginevra",
             "rm": "Genevra",
-            "en": "Geneva"
+            "en": "Geneva",
+            "es": "Ginebra",
+            "pt": "Genebra"
         }
     },
     {
@@ -86,7 +102,9 @@ export default [
             "fr": "Glaris",
             "it": "Glarona",
             "rm": "Glaruna",
-            "en": "Glaris"
+            "en": "Glaris",
+            "es": "Glaris",
+            "pt": "Glarus"
         }
     },
     {
@@ -96,7 +114,9 @@ export default [
             "fr": "Grisons",
             "it": "Grigioni",
             "rm": "Grischun",
-            "en": "Grisons"
+            "en": "Grisons",
+            "es": "Grisones",
+            "pt": "Grisões"
         }
     },
     {
@@ -106,7 +126,9 @@ export default [
             "fr": "Jura",
             "it": "Giura",
             "rm": "Giura",
-            "en": "Jura"
+            "en": "Jura",
+            "es": "Jura",
+            "pt": "Jura"
         }
     },
     {
@@ -116,7 +138,9 @@ export default [
             "fr": "Lucerne",
             "it": "Lucerna",
             "rm": "Lucerna",
-            "en": "Lucerne"
+            "en": "Lucerne",
+            "es": "Lucerna",
+            "pt": "Lucerna"
         }
     },
     {
@@ -126,7 +150,9 @@ export default [
             "fr": "Neuchâtel",
             "it": "Neuchâtel",
             "rm": "Neuchâtel",
-            "en": "Neuchâtel"
+            "en": "Neuchâtel",
+            "es": "Neuchâtel",
+            "pt": "Neuchâtel"
         }
     },
     {
@@ -136,7 +162,9 @@ export default [
             "fr": "Nidwald",
             "it": "Nidvaldo",
             "rm": "Sutsilvania",
-            "en": "Nidwald"
+            "en": "Nidwald",
+            "es": "Nidwalden",
+            "pt": "Nidwalden"
         }
     },
     {
@@ -146,7 +174,9 @@ export default [
             "fr": "Obwald",
             "it": "Obvaldo",
             "rm": "Sursilvania",
-            "en": "Obwald"
+            "en": "Obwald",
+            "es": "Obwalden",
+            "pt": "Obwalden"
         }
     },
     {
@@ -156,7 +186,9 @@ export default [
             "fr": "Saint-Gall",
             "it": "San Gallo",
             "rm": "Son Gagl",
-            "en": "St. Gall"
+            "en": "St. Gall",
+            "es": "San Galo",
+            "pt": "São Galo"
         }
     },
     {
@@ -166,7 +198,9 @@ export default [
             "fr": "Schaffhouse",
             "it": "Sciaffusa",
             "rm": "Schaffusa",
-            "en": "Schaffhouse"
+            "en": "Schaffhouse",
+            "es": "Schaffhausen",
+            "pt": "Schaffhausen"
         }
     },
     {
@@ -176,7 +210,9 @@ export default [
             "fr": "Soleure",
             "it": "Soletta",
             "rm": "Soloturn",
-            "en": "Soleure"
+            "en": "Soleure",
+            "es": "Soleura",
+            "pt": "Soleura"
         }
     },
     {
@@ -186,7 +222,9 @@ export default [
             "fr": "Schwytz",
             "it": "Svitto",
             "rm": "Sviz",
-            "en": "Schwyz"
+            "en": "Schwyz",
+            "es": "Schwyz",
+            "pt": "Schwyz"
         }
     },
     {
@@ -196,7 +234,9 @@ export default [
             "fr": "Thurgovie",
             "it": "Turgovia",
             "rm": "Turgovia",
-            "en": "Thurgovia"
+            "en": "Thurgovia",
+            "es": "Turgovia",
+            "pt": "Turgóvia"
         }
     },
     {
@@ -206,7 +246,9 @@ export default [
             "fr": "Tessin",
             "it": "Ticino",
             "rm": "Tessin",
-            "en": "Ticino"
+            "en": "Ticino",
+            "es": "Tesino",
+            "pt": "Ticino"
         }
     },
     {
@@ -216,7 +258,9 @@ export default [
             "fr": "Uri",
             "it": "Uri",
             "rm": "Uri",
-            "en": "Uri"
+            "en": "Uri",
+            "es": "Uri",
+            "pt": "Uri"
         }
     },
     {
@@ -226,7 +270,9 @@ export default [
             "fr": "Vaud",
             "it": "Vaud",
             "rm": "Vad",
-            "en": "Vaud"
+            "en": "Vaud",
+            "es": "Vaud",
+            "pt": "Vaud"
         }
     },
     {
@@ -236,7 +282,9 @@ export default [
             "fr": "Valais",
             "it": "Vallese",
             "rm": "Vallais",
-            "en": "Valais"
+            "en": "Valais",
+            "es": "Valais",
+            "pt": "Valais"
         }
     },
     {
@@ -246,7 +294,9 @@ export default [
             "fr": "Zoug",
             "it": "Zugo",
             "rm": "Zug",
-            "en": "Zug"
+            "en": "Zug",
+            "es": "Zug",
+            "pt": "Zug"
         }
     },
     {
@@ -256,7 +306,9 @@ export default [
             "fr": "Zurich",
             "it": "Zurigo",
             "rm": "Turitg",
-            "en": "Zurich"
+            "en": "Zurich",
+            "es": "Zúrich",
+            "pt": "Zurique"
         }
     }
 ]

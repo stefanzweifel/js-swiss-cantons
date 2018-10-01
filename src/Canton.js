@@ -2,7 +2,7 @@ export default class {
 
     constructor(data) {
         this.data = data;
-        this.availableLanguages = ['de', 'fr', 'it', 'en', 'rm'];
+        this.availableLanguages = ['de', 'fr', 'it', 'en', 'rm', 'es', 'pt'];
         this.displayLanguage = 'en';
     }
 
