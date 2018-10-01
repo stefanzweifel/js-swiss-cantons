@@ -46,7 +46,7 @@ export default [
             "fr": "Bâle-Campagne",
             "it": "Basilea Campagna",
             "rm": "Basilea-Champagna",
-            "en": "Basle-Country"
+            "en": "Basel-Country",
         }
     },
     {
@@ -56,7 +56,7 @@ export default [
             "fr": "Bâle-Ville",
             "it": "Basilea Città",
             "rm": "Basilea-Citad",
-            "en": "Basle-City"
+            "en": "Basel-City",
         }
     },
     {
