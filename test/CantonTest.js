@@ -77,13 +77,33 @@ test('it returns correct name of canton for set language', t => {
             "fr": "Glaris",
             "it": "Glarona",
             "rm": "Glaruna",
-            "en": "Glaris"
+            "en": "Glaris",
+            "es": "Glaris",
+            "pt": "Glarus"
         }
     };
 
     let instance = new Canton(data);
-    instance.setLanguage('de');
 
+    instance.setLanguage('de');
+    t.is(instance.getName(), 'Glarus');
+
+    instance.setLanguage('fr');
+    t.is(instance.getName(), 'Glaris');
+
+    instance.setLanguage('it');
+    t.is(instance.getName(), 'Glarona');
+
+    instance.setLanguage('rm');
+    t.is(instance.getName(), 'Glaruna');
+
+    instance.setLanguage('en');
+    t.is(instance.getName(), 'Glaris');
+
+    instance.setLanguage('es');
+    t.is(instance.getName(), 'Glaris');
+
+    instance.setLanguage('pt');
     t.is(instance.getName(), 'Glarus');
 
 })
