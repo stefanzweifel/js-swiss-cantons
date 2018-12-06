@@ -21,7 +21,7 @@ test('it_finds_canton_if_zipcode_is_passed_as_a_number', t => {
   let result = search.findbyZipcode(1000);
 
   t.is(result.canton, 'VD');
-  t.is(result.city_name, 'Lausanne');
+  t.is(result.city_name, 'Lausanne 27');
 });
 
 test('it_does_not_find_result_for_not_available_zipcode', t => {
