@@ -6,7 +6,7 @@ export default class ZipcodeSearch {
   }
 
   /**
-   * Find Canton by its name, abbreviation or other property
+   * Find a locality by zipcode
    * @param  {string | number} zipcode
    * @return {mixed} Returns an object or null if no result was found
    */
