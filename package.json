@@ -1,6 +1,6 @@
 {
   "name": "@stefanzweifel/js-swiss-cantons",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Search for Swiss Canton by abbreviation or name",
   "main": "src/CantonManager.js",
   "scripts": {
