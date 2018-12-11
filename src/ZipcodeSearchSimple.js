@@ -47,7 +47,7 @@ export default class ZipcodeSearchSimple {
     let result;
 
     Object.keys(zipcodes).some(code => {
-      if (zipcode >= Number(code)) {
+      if (zipcode >= code) {
         result = code;
         return true;
       }
