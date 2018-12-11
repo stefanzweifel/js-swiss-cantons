@@ -46,16 +46,21 @@ export default class ZipcodeSearchSimple {
   findbyZipcode(zipcode) {
     let result;
 
+    if (zipcode > 9999 || zipcode < 1000) {
+      return null;
+    }
+
     Object.keys(zipcodes).some(code => {
       if (zipcode >= code) {
         result = code;
-        return true;
+        return false;
       }
-
-      return false;
+      return true;
     });
 
-    const canton = CANTONS.indexOf(result);
-    return canton || null;
+    const cantonIndex = zipcodes[result];
+
+    const canton = CANTONS[cantonIndex];
+    return canton;
   }
 }
