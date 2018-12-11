@@ -1,3 +1,5 @@
+// TO BE REMOVED
+
 var fs = require('fs');
 var cants = require('./zipcodesSimple.json');
 
