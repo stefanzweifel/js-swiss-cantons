@@ -30,6 +30,14 @@ npm install @stefanzweifel/js-swiss-cantons
 
 ### Usage
 
+There are 3 classes available in this package, with varying precision and tradeoffs:
+
+- CantonManager
+- ZipcodeSearch
+- ZipcodeSearchSimple
+
+#### CantonManager
+
 Currently there are two methods available on the CantonManager Class: `getByAbbreviation` and `getByName`.
 
 ```javascript
@@ -43,6 +51,8 @@ console.log(
   canton.setLanguage('de').getName() // Schaffhausen
 );
 ```
+
+#### ZipcodeSearch
 
 The ZipcodeSearch class can be used to find cantons by zipcode, be careful, it imports the entire zipcode dataset (~290kb).
 
@@ -64,6 +74,23 @@ let location = search.findbyZipcode(8001); // Search by number
 
 You can also retrieve the whole dataset like this:
 let locations = search.getDataSet();
+```
+
+#### ZipcodeSearchSimple
+
+The `ZipcodeSearchSimple` class can be used to find cantons by zipcode, it imports much less data: 2.9Kb. The tradeoff is that it will find cantons for non-existent zipcodes, such as 5800, for which it will return `SO`, even though no city has that zipcode in Switzerland. This is because it searches for a canton in a range of zipcodes. For example, all zipcodes between 8001 and 8109 will return `ZH`, after which it will return `AG` until 8112. If you want more precision and/or data, use `ZipcodeSearch` instead.
+
+```javascript
+import ZipcodeSearchSimple from '@stefanzweifel/js-swiss-cantons/src/ZipcodeSearchSimple';
+
+let search = new ZipcodeSearchSimple();
+
+let location = search.findbyZipcode('1201'); // Search by string
+let location = search.findbyZipcode(8001); // Search by number
+
+// Returns a string
+// 'GE'
+// 'ZH'
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
