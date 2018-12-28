@@ -1,7 +1,7 @@
 // TO BE REMOVED
 
 var fs = require('fs');
-var cants = require('./zipcodesSimple.json');
+var cants = require('./../data/zipcodesSimple.json');
 
 const CANTONS = {
   AG: 'Aargau',
