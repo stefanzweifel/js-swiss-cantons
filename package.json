@@ -4,7 +4,7 @@
   "description": "Search for Swiss Canton by abbreviation or name",
   "main": "src/CantonManager.js",
   "scripts": {
-    "lint": "eslint 'src/**/*'",
+    "lint": "eslint 'src/**/*.js'",
     "test": "ava",
     "test-coverage": "nyc ava"
   },

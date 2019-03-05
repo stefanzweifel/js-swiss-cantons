@@ -34,7 +34,6 @@ export default class {
             return search.findByAbbreviation(value);
         }
         catch (e) {
-            console.warn(e.message);
             return search.findByName(value);
         }
     }
