@@ -4,6 +4,7 @@
   "description": "Search for Swiss Canton by abbreviation or name",
   "main": "src/CantonManager.js",
   "scripts": {
+    "format": "prettier --write 'src/_assets/**/*.js' 'test/**/*.js'",
     "lint": "eslint 'src/**/*.js'",
     "test": "ava",
     "test-coverage": "nyc ava"
@@ -24,6 +25,7 @@
     "ava": "^2.1.0",
     "eslint": "^6.0.1",
     "nyc": "^14.0.0",
+    "prettier": "1.18.2",
     "webpack": "^4.0.1",
     "webpack-cli": "^3.0.3"
   },
