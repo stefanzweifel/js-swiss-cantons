@@ -1,0 +1,27 @@
+name: Format
+
+on:
+  pull_request:
+    paths:
+    - '**.js'
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install
+      run: yarn install
+      env:
+        CI: true
+
+    - name: Run prettier
+      run: yarn format
+
+    - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+      with:
+        commit_message: Apply prettier changes
+        branch: ${{ github.head_ref }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
