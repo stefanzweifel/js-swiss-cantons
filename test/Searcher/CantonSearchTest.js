@@ -11,9 +11,12 @@ test('it_finds_canton_by_abbreviation', t => {
 test('it_throws_error_if_no_canton_can_be_found_for_abbreviation', t => {
     let search = new CantonSearch();
 
-    const error = t.throws(() => {
-        search.findByAbbreviation('FOO-BAR');
-    }, {instanceOf: Error});
+    const error = t.throws(
+        () => {
+            search.findByAbbreviation('FOO-BAR');
+        },
+        { instanceOf: Error }
+    );
 
     t.is(error.message, 'No canton found for abbreviation FOO-BAR');
 });
@@ -40,9 +43,12 @@ test('it_finds_canton_by_name', t => {
 test('it_throws_error_if_no_canton_can_be_found_for_name', t => {
     let search = new CantonSearch();
 
-    const error = t.throws(() => {
-        search.findByName('FOO-BAR');
-    }, {instanceOf: Error});
+    const error = t.throws(
+        () => {
+            search.findByName('FOO-BAR');
+        },
+        { instanceOf: Error }
+    );
 
     t.is(error.message, 'No canton found for name FOO-BAR');
 });
