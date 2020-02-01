@@ -103,7 +103,7 @@ test('it throws an error if display language does not exist', t => {
 
     const error = t.throws(() => {
         instance.setLanguage('foobar');
-    }, Error);
+    }, {instanceOf: Error});
 
     t.is(error.message, 'Language foobar is not supported');
 });
