@@ -101,9 +101,12 @@ test('it returns correct name of canton for set language', t => {
 test('it throws an error if display language does not exist', t => {
     let instance = new Canton({});
 
-    const error = t.throws(() => {
-        instance.setLanguage('foobar');
-    }, Error);
+    const error = t.throws(
+        () => {
+            instance.setLanguage('foobar');
+        },
+        { instanceOf: Error }
+    );
 
     t.is(error.message, 'Language foobar is not supported');
 });
