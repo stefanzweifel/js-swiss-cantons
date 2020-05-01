@@ -1,5 +1,4 @@
 export default class {
-
     constructor(data) {
         this.data = data;
         this.availableLanguages = ['de', 'fr', 'it', 'en', 'rm', 'es', 'pt'];
@@ -45,5 +44,4 @@ export default class {
     getLanguage() {
         return this.displayLanguage;
     }
-
 }

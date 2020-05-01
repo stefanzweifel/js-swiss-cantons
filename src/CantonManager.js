@@ -1,14 +1,13 @@
 import CantonSearch from './Searcher/CantonSearch.js';
 
 export default class {
-
     /**
      * Find Canton by its abbreviation
      * @param  {string} abbreviation
      * @return {Canton}
      */
     getByAbbreviation(abbreviation) {
-        let search = new CantonSearch;
+        let search = new CantonSearch();
         return search.findByAbbreviation(abbreviation);
     }
 
@@ -18,7 +17,7 @@ export default class {
      * @return {Canton}
      */
     getByName(name) {
-        let search = new CantonSearch;
+        let search = new CantonSearch();
         return search.findByName(name);
     }
 
@@ -28,12 +27,11 @@ export default class {
      * @return {Canton}
      */
     getByAnything(value) {
-        let search = new CantonSearch;
+        let search = new CantonSearch();
 
         try {
             return search.findByAbbreviation(value);
-        }
-        catch (e) {
+        } catch (e) {
             return search.findByName(value);
         }
     }

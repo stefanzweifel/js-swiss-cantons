@@ -2,7 +2,6 @@ import cantons from './../data/cantons.js';
 import canton from './../Canton.js';
 
 export default class {
-
     /**
      * Find Canton by it abbreviation
      * @param  {string} abbreviation
@@ -26,7 +25,6 @@ export default class {
      * @return {Canton}
      */
     findByName(name) {
-
         let result = cantons.filter((value) => {
             return Object.values(value.name).indexOf(name) !== -1;
         });
@@ -37,5 +35,4 @@ export default class {
 
         return new canton(result[0]);
     }
-
 }

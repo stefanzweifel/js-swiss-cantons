@@ -1,7 +1,7 @@
 import test from 'ava';
 import Canton from '../src/Canton.js';
 
-test('it instatiates correctly', t => {
+test('it instatiates correctly', (t) => {
     let data = {
         abbreviation: 'GL',
         name: {
@@ -18,7 +18,7 @@ test('it instatiates correctly', t => {
     t.is(instance.data, data);
 });
 
-test('it returns correct abbreviation', t => {
+test('it returns correct abbreviation', (t) => {
     let data = {
         abbreviation: 'GL',
         name: {
@@ -35,7 +35,7 @@ test('it returns correct abbreviation', t => {
     t.is(instance.getAbbreviation(), 'GL');
 });
 
-test('it returns name for default language', t => {
+test('it returns name for default language', (t) => {
     let data = {
         abbreviation: 'GL',
         name: {
@@ -52,7 +52,7 @@ test('it returns name for default language', t => {
     t.is(instance.getName(), 'Glaris');
 });
 
-test('it sets language correctly', t => {
+test('it sets language correctly', (t) => {
     let instance = new Canton({});
 
     instance.setLanguage('de');
@@ -60,7 +60,7 @@ test('it sets language correctly', t => {
     t.is(instance.getLanguage(), 'de');
 });
 
-test('it returns correct name of canton for set language', t => {
+test('it returns correct name of canton for set language', (t) => {
     let data = {
         abbreviation: 'GL',
         name: {
@@ -98,7 +98,7 @@ test('it returns correct name of canton for set language', t => {
     t.is(instance.getName(), 'Glarus');
 });
 
-test('it throws an error if display language does not exist', t => {
+test('it throws an error if display language does not exist', (t) => {
     let instance = new Canton({});
 
     const error = t.throws(
@@ -111,7 +111,7 @@ test('it throws an error if display language does not exist', t => {
     t.is(error.message, 'Language foobar is not supported');
 });
 
-test('it lowercases passed language', t => {
+test('it lowercases passed language', (t) => {
     let instance = new Canton({});
     instance.setLanguage('DE');
 
