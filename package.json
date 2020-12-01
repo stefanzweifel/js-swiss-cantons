@@ -27,7 +27,7 @@
     "nyc": "^15.0.0",
     "prettier": "2.2.1",
     "webpack": "^4.0.1",
-    "webpack-cli": "^3.0.3"
+    "webpack-cli": "^4.2.0"
   },
   "dependencies": {},
   "ava": {
