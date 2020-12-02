@@ -1,10 +1,6 @@
 # 🇨🇭 js-swiss-cantons
 
-<p align="center">
-    <a href="https://travis-ci.org/stefanzweifel/js-swiss-cantons" title="Build Status">
-        <img src="https://travis-ci.org/stefanzweifel/js-swiss-cantons.svg?branch=master" alt="Build Status">
-    </a>
-</p>
+![tests](https://github.com/stefanzweifel/js-swiss-cantons/workflows/tests/badge.svg)
 
 Find any Swiss canton by its abbreviation, name, or by the zipcode of any Swiss city. (This is a port of [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons))
 
