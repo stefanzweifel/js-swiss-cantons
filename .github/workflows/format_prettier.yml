@@ -8,7 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: bahmutov/npm-install@v1
+    - name: Install testing dependencies
+      run: yarn install
 
     - name: Run prettier
       run: yarn format
