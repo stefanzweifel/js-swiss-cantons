@@ -23,7 +23,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/register": "^7.0.0",
     "ava": "^6.1.1",
-    "eslint": "^8.32.0",
+    "eslint": "^9.4.0",
     "nyc": "^15.0.0",
     "prettier": "3.2.5",
     "webpack": "^5.19.0",
