@@ -16,7 +16,7 @@ jobs:
       run: npm install
 
     - name: Run prettier
-      run: npm format
+      run: npm run format
 
     - uses: stefanzweifel/git-auto-commit-action@v7.1.0
       with:
