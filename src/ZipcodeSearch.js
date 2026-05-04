@@ -1,4 +1,4 @@
-import zipcodes from './data/zipcodes.json';
+import zipcodes from './data/zipcodes.json' with { type: 'json' };
 
 export default class ZipcodeSearch {
     constructor() {

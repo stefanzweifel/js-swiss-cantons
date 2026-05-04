@@ -8,11 +8,15 @@ jobs:
     steps:
     - uses: actions/checkout@v6
 
+    - uses: actions/setup-node@v6.4.0
+      with:
+        node-version: 24
+
     - name: Install testing dependencies
-      run: yarn install
+      run: npm install
 
     - name: Run prettier
-      run: yarn format
+      run: npm run format
 
     - uses: stefanzweifel/git-auto-commit-action@v7.1.0
       with:

@@ -1,4 +1,4 @@
-import zipcodes from './data/cantonsShort.json';
+import zipcodes from './data/cantonsShort.json' with { type: 'json' };
 
 // Cantons are stored as a number in the dataset, if the same canton appears
 // multiple times after each other for a range of zipcodes, only the first

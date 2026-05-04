@@ -1,7 +1,7 @@
 import test from 'ava';
 import Canton from '../src/Canton.js';
 
-test('it instatiates correctly', (t) => {
+test('it instantiates correctly', (t) => {
     let data = {
         abbreviation: 'GL',
         name: {
