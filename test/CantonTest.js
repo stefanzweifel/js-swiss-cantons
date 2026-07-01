@@ -1,8 +1,9 @@
-import test from 'ava';
+import assert from 'node:assert/strict';
+import test from 'node:test';
 import Canton from '../src/Canton.js';
 
-test('it instantiates correctly', (t) => {
-    let data = {
+test('it instantiates correctly', () => {
+    const data = {
         abbreviation: 'GL',
         name: {
             de: 'Glarus',
@@ -13,13 +14,13 @@ test('it instantiates correctly', (t) => {
         },
     };
 
-    let instance = new Canton(data);
+    const instance = new Canton(data);
 
-    t.is(instance.data, data);
+    assert.equal(instance.data, data);
 });
 
-test('it returns correct abbreviation', (t) => {
-    let data = {
+test('it returns correct abbreviation', () => {
+    const data = {
         abbreviation: 'GL',
         name: {
             de: 'Glarus',
@@ -30,13 +31,13 @@ test('it returns correct abbreviation', (t) => {
         },
     };
 
-    let instance = new Canton(data);
+    const instance = new Canton(data);
 
-    t.is(instance.getAbbreviation(), 'GL');
+    assert.equal(instance.getAbbreviation(), 'GL');
 });
 
-test('it returns name for default language', (t) => {
-    let data = {
+test('it returns name for default language', () => {
+    const data = {
         abbreviation: 'GL',
         name: {
             de: 'Glarus',
@@ -47,21 +48,21 @@ test('it returns name for default language', (t) => {
         },
     };
 
-    let instance = new Canton(data);
+    const instance = new Canton(data);
 
-    t.is(instance.getName(), 'Glaris');
+    assert.equal(instance.getName(), 'Glaris');
 });
 
-test('it sets language correctly', (t) => {
-    let instance = new Canton({});
+test('it sets language correctly', () => {
+    const instance = new Canton({});
 
     instance.setLanguage('de');
 
-    t.is(instance.getLanguage(), 'de');
+    assert.equal(instance.getLanguage(), 'de');
 });
 
-test('it returns correct name of canton for set language', (t) => {
-    let data = {
+test('it returns correct name of canton for set language', () => {
+    const data = {
         abbreviation: 'GL',
         name: {
             de: 'Glarus',
@@ -74,46 +75,41 @@ test('it returns correct name of canton for set language', (t) => {
         },
     };
 
-    let instance = new Canton(data);
+    const instance = new Canton(data);
 
     instance.setLanguage('de');
-    t.is(instance.getName(), 'Glarus');
+    assert.equal(instance.getName(), 'Glarus');
 
     instance.setLanguage('fr');
-    t.is(instance.getName(), 'Glaris');
+    assert.equal(instance.getName(), 'Glaris');
 
     instance.setLanguage('it');
-    t.is(instance.getName(), 'Glarona');
+    assert.equal(instance.getName(), 'Glarona');
 
     instance.setLanguage('rm');
-    t.is(instance.getName(), 'Glaruna');
+    assert.equal(instance.getName(), 'Glaruna');
 
     instance.setLanguage('en');
-    t.is(instance.getName(), 'Glaris');
+    assert.equal(instance.getName(), 'Glaris');
 
     instance.setLanguage('es');
-    t.is(instance.getName(), 'Glaris');
+    assert.equal(instance.getName(), 'Glaris');
 
     instance.setLanguage('pt');
-    t.is(instance.getName(), 'Glarus');
+    assert.equal(instance.getName(), 'Glarus');
 });
 
-test('it throws an error if display language does not exist', (t) => {
-    let instance = new Canton({});
+test('it throws an error if display language does not exist', () => {
+    const instance = new Canton({});
 
-    const error = t.throws(
-        () => {
-            instance.setLanguage('foobar');
-        },
-        { instanceOf: Error }
-    );
-
-    t.is(error.message, 'Language foobar is not supported');
+    assert.throws(() => instance.setLanguage('foobar'), {
+        message: 'Language foobar is not supported',
+    });
 });
 
-test('it lowercases passed language', (t) => {
-    let instance = new Canton({});
+test('it lowercases passed language', () => {
+    const instance = new Canton({});
     instance.setLanguage('DE');
 
-    t.is(instance.getLanguage(), 'de');
+    assert.equal(instance.getLanguage(), 'de');
 });

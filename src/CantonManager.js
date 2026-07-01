@@ -7,7 +7,7 @@ export default class {
      * @return {Canton}
      */
     getByAbbreviation(abbreviation) {
-        let search = new CantonSearch();
+        const search = new CantonSearch();
         return search.findByAbbreviation(abbreviation);
     }
 
@@ -17,7 +17,7 @@ export default class {
      * @return {Canton}
      */
     getByName(name) {
-        let search = new CantonSearch();
+        const search = new CantonSearch();
         return search.findByName(name);
     }
 
@@ -27,11 +27,11 @@ export default class {
      * @return {Canton}
      */
     getByAnything(value) {
-        let search = new CantonSearch();
+        const search = new CantonSearch();
 
         try {
             return search.findByAbbreviation(value);
-        } catch (e) {
+        } catch {
             return search.findByName(value);
         }
     }
