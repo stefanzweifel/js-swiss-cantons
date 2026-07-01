@@ -21,7 +21,7 @@
   "homepage": "https://github.com/stefanzweifel/js-swiss-cantons#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",
-    "@babel/register": "^7.0.0",
+    "@babel/register": "^8.0.1",
     "ava": "^8.0.0",
     "eslint": "^10.0.2",
     "nyc": "^18.0.0",
