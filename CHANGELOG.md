@@ -6,6 +6,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased](https://github.com/stefanzweifel/js-swiss-cantons/compare/v1.3.0...HEAD)
 
+### Changed (breaking)
+- Replaced the class-based API with plain functions. See [MIGRATION.md](./MIGRATION.md).
+  - `CantonManager` → `getCanton` / `getCantonByAbbreviation` / `getCantonByName` / `getAllCantons`.
+  - A canton is now a plain object (`{ abbreviation, names }`); `setLanguage()`/`getName()`
+    are gone — read `canton.names.<lang>` directly.
+  - `ZipcodeSearch` → `findLocalityByZipcode` (import from `@stefanzweifel/js-swiss-cantons/zipcodes`),
+    with camelCased fields (`cityName`, `communityName`).
+  - `ZipcodeSearchSimple` → `findCantonByZipcode` (import from `@stefanzweifel/js-swiss-cantons/zipcodes/simple`).
+  - Lookups now return `undefined` when nothing matches instead of throwing / returning `null`.
+- Package is now **ESM-only**, ships compiled output from `dist/`, and exposes cantons at the
+  root with zipcode helpers behind the `/zipcodes` and `/zipcodes/simple` subpaths.
+
+### Added
+- Bundled TypeScript type declarations (`Canton`, `Language`, `Locality`).
+
+### Removed
+- `getDataSet()` on the zipcode search.
+- Deep `@stefanzweifel/js-swiss-cantons/src/...` import paths.
+
+### Internal
+- Dropped Babel, Webpack, ava, nyc, ESLint, and Prettier. The package now builds with
+  [tsdown](https://tsdown.dev), tests with the built-in `node:test` runner, and lints/formats
+  with [Biome](https://biomejs.dev).
+
 ## [v1.3.0](https://github.com/stefanzweifel/js-swiss-cantons/compare/v1.2.0...v1.3.0) - 2018-12-28
 
 ### Added

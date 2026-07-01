@@ -1,14 +1,40 @@
 {
     "name": "@stefanzweifel/js-swiss-cantons",
-    "version": "1.2.0",
-    "description": "Search for Swiss Canton by abbreviation or name",
+    "version": "2.0.0",
+    "description": "Look up Swiss cantons by abbreviation, name or zipcode",
     "type": "module",
-    "main": "src/CantonManager.js",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./zipcodes": {
+            "types": "./dist/zipcodes.d.ts",
+            "import": "./dist/zipcodes.js"
+        },
+        "./zipcodes/simple": {
+            "types": "./dist/zipcodes/simple.d.ts",
+            "import": "./dist/zipcodes/simple.js"
+        }
+    },
+    "engines": {
+        "node": ">=18"
+    },
     "scripts": {
+        "build": "tsdown",
         "test": "node --test",
         "test:coverage": "node --test --experimental-test-coverage",
+        "typecheck": "tsc --noEmit",
         "lint": "biome check .",
-        "format": "biome check --write ."
+        "format": "biome check --write .",
+        "prepublishOnly": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -21,6 +47,9 @@
     },
     "homepage": "https://github.com/stefanzweifel/js-swiss-cantons#readme",
     "devDependencies": {
-        "@biomejs/biome": "^2.5.2"
+        "@biomejs/biome": "^2.5.2",
+        "@types/node": "^24.13.2",
+        "tsdown": "^0.22.3",
+        "typescript": "^6.0.3"
     }
 }
