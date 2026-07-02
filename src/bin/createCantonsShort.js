@@ -36,7 +36,7 @@ const CANTONS = {
 const shortCantons = Object.keys(CANTONS);
 
 const main = () => {
-    let obj = {};
+    const obj = {};
     Object.keys(cants).forEach((key, index) => {
         let prevKey = '';
         if (index > 0) {

@@ -3,7 +3,7 @@ name: Format
 on: pull_request
 
 jobs:
-  prettier:
+  biome:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v7
@@ -12,15 +12,15 @@ jobs:
       with:
         node-version: 24
 
-    - name: Install testing dependencies
+    - name: Install dependencies
       run: npm install
 
-    - name: Run prettier
+    - name: Run Biome
       run: npm run format
 
     - uses: stefanzweifel/git-auto-commit-action@v7.2.0
       with:
-        commit_message: Apply prettier changes
+        commit_message: Apply Biome formatting
         branch: ${{ github.head_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

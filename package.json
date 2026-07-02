@@ -1,51 +1,26 @@
 {
-  "name": "@stefanzweifel/js-swiss-cantons",
-  "version": "1.2.0",
-  "description": "Search for Swiss Canton by abbreviation or name",
-  "main": "src/CantonManager.js",
-  "scripts": {
-    "format": "prettier --write 'src/**/*.js' 'test/**/*.js'",
-    "lint": "eslint 'src/**/*.js'",
-    "test": "ava",
-    "test-coverage": "nyc ava"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stefanzweifel/js-swiss-cantons.git"
-  },
-  "author": "Stefan Zweifel",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/stefanzweifel/js-swiss-cantons/issues"
-  },
-  "homepage": "https://github.com/stefanzweifel/js-swiss-cantons#readme",
-  "devDependencies": {
-    "@babel/preset-env": "^7.2.3",
-    "@babel/register": "^7.0.0",
-    "ava": "^8.0.0",
-    "eslint": "^10.0.2",
-    "nyc": "^18.0.0",
-    "prettier": "3.9.4",
-    "webpack": "^5.19.0",
-    "webpack-cli": "^7.0.2"
-  },
-  "dependencies": {},
-  "ava": {
-    "require": [
-      "@babel/register"
-    ]
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.js"
-    ],
-    "exclude": [
-      "src/data/**.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "report-dir": "./coverage"
-  }
+    "name": "@stefanzweifel/js-swiss-cantons",
+    "version": "1.2.0",
+    "description": "Search for Swiss Canton by abbreviation or name",
+    "type": "module",
+    "main": "src/CantonManager.js",
+    "scripts": {
+        "test": "node --test",
+        "test:coverage": "node --test --experimental-test-coverage",
+        "lint": "biome check .",
+        "format": "biome check --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stefanzweifel/js-swiss-cantons.git"
+    },
+    "author": "Stefan Zweifel",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/stefanzweifel/js-swiss-cantons/issues"
+    },
+    "homepage": "https://github.com/stefanzweifel/js-swiss-cantons#readme",
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.2"
+    }
 }

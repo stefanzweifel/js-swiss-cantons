@@ -1,5 +1,5 @@
-import cantons from './../data/cantons.js';
 import canton from './../Canton.js';
+import cantons from './../data/cantons.js';
 
 export default class {
     /**
@@ -8,11 +8,11 @@ export default class {
      * @return {Canton}
      */
     findByAbbreviation(abbreviation) {
-        let result = cantons.filter((value) => {
+        const result = cantons.filter((value) => {
             return value.abbreviation === abbreviation.toUpperCase();
         });
 
-        if (result.length == 0) {
+        if (result.length === 0) {
             throw new Error(`No canton found for abbreviation ${abbreviation}`);
         }
 
@@ -25,11 +25,11 @@ export default class {
      * @return {Canton}
      */
     findByName(name) {
-        let result = cantons.filter((value) => {
+        const result = cantons.filter((value) => {
             return Object.values(value.name).indexOf(name) !== -1;
         });
 
-        if (result.length == 0) {
+        if (result.length === 0) {
             throw new Error(`No canton found for name ${name}`);
         }
 
