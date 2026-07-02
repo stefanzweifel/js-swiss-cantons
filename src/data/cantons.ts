@@ -2,12 +2,24 @@ export type Language = 'de' | 'fr' | 'it' | 'en' | 'rm' | 'es' | 'pt';
 
 export interface Canton {
     /** Two-letter canton abbreviation, e.g. `ZH`. */
-    abbreviation: string;
+    readonly abbreviation: string;
     /** Canton name in each supported language. */
-    names: Record<Language, string>;
+    readonly names: Readonly<Record<Language, string>>;
 }
 
-export const cantons: Canton[] = [
+// Freeze the data so a consumer that mutates a returned canton cannot corrupt
+// this shared, module-level singleton for the rest of the process. The
+// `readonly` types above give TypeScript callers the same guarantee at compile
+// time; the freeze enforces it at runtime for plain-JS callers.
+function deepFreeze(list: Canton[]): readonly Canton[] {
+    for (const canton of list) {
+        Object.freeze(canton.names);
+        Object.freeze(canton);
+    }
+    return Object.freeze(list);
+}
+
+export const cantons: readonly Canton[] = deepFreeze([
     {
         abbreviation: 'AG',
         names: {
@@ -320,4 +332,4 @@ export const cantons: Canton[] = [
             pt: 'Zurique',
         },
     },
-];
+]);

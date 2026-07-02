@@ -22,3 +22,15 @@ test('returns a canton for non-existent postal codes within range', () => {
 test('finds Liechtenstein zipcodes', () => {
     assert.equal(findCantonByZipcode(9494), 'LI');
 });
+
+test('resolves the range boundaries', () => {
+    assert.equal(findCantonByZipcode(1000), 'VD'); // first entry
+    assert.equal(findCantonByZipcode(9999), 'BE'); // last resolvable zipcode
+});
+
+test('returns undefined for non-numeric input', () => {
+    assert.equal(findCantonByZipcode('abc'), undefined);
+    assert.equal(findCantonByZipcode(''), undefined);
+    // @ts-expect-error — guarding runtime behaviour for plain-JS callers
+    assert.equal(findCantonByZipcode(null), undefined);
+});

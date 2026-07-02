@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { cantons, type Language } from '../src/data/cantons.ts';
 import {
     getAllCantons,
     getCanton,
@@ -48,4 +49,58 @@ test('canton names expose every supported language', () => {
         es: 'Glaris',
         pt: 'Glarus',
     });
+});
+
+test('name lookup is case-sensitive (unlike abbreviation lookup)', () => {
+    // Documents an intentional asymmetry: abbreviations are matched
+    // case-insensitively, names must match exactly.
+    assert.equal(getCantonByName('Zürich')?.abbreviation, 'ZH');
+    assert.equal(getCantonByName('zürich'), undefined);
+});
+
+test('returned cantons are frozen and cannot corrupt shared state', () => {
+    const canton = getCantonByAbbreviation('BE');
+
+    // Attempting to mutate a returned canton throws instead of silently
+    // poisoning the module-level data for every other caller.
+    assert.throws(() => {
+        // biome-ignore lint/suspicious/noExplicitAny: intentionally bypassing readonly to prove the runtime freeze
+        (canton as any).names.de = 'HACKED';
+    }, TypeError);
+    assert.throws(() => {
+        // biome-ignore lint/suspicious/noExplicitAny: intentionally bypassing readonly to prove the runtime freeze
+        (getAllCantons()[0] as any).abbreviation = 'XX';
+    }, TypeError);
+
+    assert.equal(getCantonByAbbreviation('BE')?.names.de, 'Bern');
+    assert.equal(getAllCantons()[0]?.abbreviation, 'AG');
+});
+
+test('data integrity: 26 cantons with unique, well-formed abbreviations', () => {
+    assert.equal(cantons.length, 26);
+
+    const abbreviations = cantons.map((canton) => canton.abbreviation);
+    assert.equal(new Set(abbreviations).size, 26, 'abbreviations must be unique');
+
+    for (const abbreviation of abbreviations) {
+        assert.match(abbreviation, /^[A-Z]{2}$/, `malformed abbreviation: ${abbreviation}`);
+    }
+});
+
+test('data integrity: every canton has a non-empty name in all 7 languages', () => {
+    const languages: Language[] = ['de', 'fr', 'it', 'en', 'rm', 'es', 'pt'];
+
+    for (const canton of cantons) {
+        assert.deepEqual(
+            Object.keys(canton.names).sort(),
+            [...languages].sort(),
+            `${canton.abbreviation} is missing a language`
+        );
+        for (const language of languages) {
+            assert.ok(
+                canton.names[language]?.length > 0,
+                `${canton.abbreviation}.${language} is empty`
+            );
+        }
+    }
 });
