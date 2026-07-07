@@ -2,124 +2,142 @@
 
 ![tests](https://github.com/stefanzweifel/js-swiss-cantons/workflows/tests/badge.svg)
 
-Find any Swiss canton by its abbreviation, name, or by the zipcode of any Swiss city. (This is a port of [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons))
+Look up any Swiss canton by its abbreviation, name, or by the zipcode of any Swiss
+city. Zero runtime dependencies, ESM-only, fully typed. (This is a port of
+[php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons).)
 
-## Getting Started
+> **Upgrading from v1?** The class-based API was replaced with plain functions in v2.
+> See [UPGRADING.md](./UPGRADING.md).
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-In order to work on this package you should have `npm`, `yarn` and `ava` installed globally.
-
-```shell
-git clone https://github.com/stefanzweifel/js-swiss-cantons.git
-```
-
-### Installing
-
-You should install the package with `yarn` or `npm` in your project.
+## Installation
 
 ```shell
 npm install @stefanzweifel/js-swiss-cantons
 ```
 
-### Usage
+Requires Node.js 18 or newer (any environment that supports ES modules).
 
-There are 3 classes available in this package, with varying precision and tradeoffs:
+## Usage
 
-- CantonManager
-- ZipcodeSearch
-- ZipcodeSearchSimple
+The package exposes plain functions that return plain, serializable objects — no
+classes to instantiate. Lookups return `undefined` when nothing matches.
 
-#### CantonManager
-
-Currently there are two methods available on the CantonManager Class: `getByAbbreviation` and `getByName`.
+### Cantons
 
 ```javascript
-import CantonManager from '@stefanzweifel/js-swiss-cantons';
+import {
+    getCanton,
+    getCantonByAbbreviation,
+    getCantonByName,
+    getAllCantons,
+} from '@stefanzweifel/js-swiss-cantons';
 
-let manager = new CantonManager();
-let canton = manager.getByAbbreviation('SH');
-let canton = manager.getByName('Schaffhausen');
-
-console.log(
-  canton.setLanguage('de').getName() // Schaffhausen
-);
-```
-
-#### ZipcodeSearch
-
-The ZipcodeSearch class can be used to find cantons by zipcode, be careful, it imports the entire zipcode dataset (~290kb).
-
-```javascript
-import ZipcodeSearch from '@stefanzweifel/js-swiss-cantons/src/ZipcodeSearch';
-
-let search = new ZipcodeSearch();
-
-let location = search.findbyZipcode('1201'); // Search by string
-let location = search.findbyZipcode(8001); // Search by number
-
-// Returns an object of the locality:
+// By abbreviation (case-insensitive), then by name as a fallback:
+const canton = getCanton('SH');
 // {
-//   "city_name": "Zürich",
-//   "zipcode": 8001,
-//   "community_name": "Zürich",
-//   "canton": "ZH"
+//   abbreviation: 'SH',
+//   names: {
+//     de: 'Schaffhausen', fr: 'Schaffhouse', it: 'Sciaffusa',
+//     rm: 'Schaffusa', en: 'Schaffhouse', es: 'Schaffhausen', pt: 'Schaffhausen',
+//   },
 // }
 
-You can also retrieve the whole dataset like this:
-let locations = search.getDataSet();
+canton.abbreviation; // 'SH'
+canton.names.de;     // 'Schaffhausen'
+canton.names.fr;     // 'Schaffhouse'
+
+getCantonByAbbreviation('zh')?.names.en; // 'Zurich'
+getCantonByName('Schaffhouse')?.abbreviation; // 'SH'
+getCanton('does-not-exist'); // undefined
+
+getAllCantons(); // Canton[] — all 26 cantons
 ```
 
-#### ZipcodeSearchSimple
+Supported languages: `de`, `fr`, `it`, `en`, `rm`, `es`, `pt`.
 
-The `ZipcodeSearchSimple` class can be used to find cantons by zipcode, it imports much less data: 2.9Kb. The tradeoff is that it will find cantons for non-existent zipcodes, such as 5800, for which it will return `SO`, even though no city has that zipcode in Switzerland. This is because it searches for a canton in a range of zipcodes. For example, all zipcodes between 8001 and 8109 will return `ZH`, after which it will return `AG` until 8112. If you want more precision and/or data, use `ZipcodeSearch` instead.
+### Zipcode → locality (precise)
+
+Imported from the `/zipcodes` subpath so the ~290 kB dataset is only bundled when you
+actually use it.
 
 ```javascript
-import ZipcodeSearchSimple from '@stefanzweifel/js-swiss-cantons/src/ZipcodeSearchSimple';
+import { findLocalityByZipcode } from '@stefanzweifel/js-swiss-cantons/zipcodes';
 
-let search = new ZipcodeSearchSimple();
+findLocalityByZipcode('1201'); // by string
+findLocalityByZipcode(8001);   // by number
+// {
+//   zipcode: 8001,
+//   cityName: 'Zürich',
+//   communityName: 'Zürich',
+//   canton: 'ZH',
+// }
 
-let location = search.findbyZipcode('1201'); // Search by string
-let location = search.findbyZipcode(8001); // Search by number
-
-// Returns a string
-// 'GE'
-// 'ZH'
+findLocalityByZipcode(99999); // undefined
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+### Zipcode → canton (compact)
 
-## Running the tests
+A much smaller dataset (~2.9 kB). The tradeoff: it returns a canton for any zipcode in
+the 1000–9999 range, including gaps that map to no real locality (e.g. `5800` returns
+`SO` even though no city has that zipcode). Use `findLocalityByZipcode` when you need
+precision.
 
-Tests are written with [ava](https://github.com/avajs/ava).
+```javascript
+import { findCantonByZipcode } from '@stefanzweifel/js-swiss-cantons/zipcodes/simple';
+
+findCantonByZipcode('1201'); // 'GE'
+findCantonByZipcode(8001);   // 'ZH'
+findCantonByZipcode(999);    // undefined (out of range)
+```
+
+## TypeScript
+
+The package ships its own type declarations. The `Canton` and `Language` types are
+exported from the root, and `Locality` from `/zipcodes`:
+
+```typescript
+import { type Canton, type Language, getCanton } from '@stefanzweifel/js-swiss-cantons';
+import { type Locality, findLocalityByZipcode } from '@stefanzweifel/js-swiss-cantons/zipcodes';
+```
+
+## Development
+
+This is a zero-dependency, TypeScript-first package. Tooling:
+
+- [tsdown](https://tsdown.dev) — bundles the library and generates type declarations
+- [Biome](https://biomejs.dev) — linting and formatting
+- The built-in Node.js test runner ([`node:test`](https://nodejs.org/api/test.html))
 
 ```shell
-npm run test
+npm install
+npm run typecheck   # tsc --noEmit
+npm test            # node --test
+npm run lint        # biome check .
+npm run format      # biome check --write .
+npm run build       # tsdown -> dist/
 ```
 
-## Deployment
+Tests run directly against the TypeScript sources — Node.js strips the types (requires
+Node 22.18+/24 for local test runs).
+
+## Releasing
 
 ```shell
-npm update patch | minor | major
-npm publish
+npm version patch | minor | major   # bump version
+npm publish                          # `prepublishOnly` builds dist/ automatically
 ```
-
-## Built With
-
-- [ava](https://github.com/avajs/ava) - Test Framework
-- [nyc](https://github.com/istanbuljs/nyc) - Code Coverage
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/2media/js-regio-parameters/releases).
+We use [SemVer](http://semver.org/). For the versions available, see the
+[tags on this repository](https://github.com/stefanzweifel/js-swiss-cantons/releases).
 
 ## Authors
 
-- **Stefan Zweifel** - _Initial work_ - [stefanzweifel](https://github.com/stefanzweifel)
+- **Stefan Zweifel** — _Initial work_ — [stefanzweifel](https://github.com/stefanzweifel)
 
-See also the list of [contributors](https://github.com/stefanzweifel/js-swiss-cantons/contributors) who participated in this project.
+See also the list of
+[contributors](https://github.com/stefanzweifel/js-swiss-cantons/contributors).
 
 ## Acknowledgments
 

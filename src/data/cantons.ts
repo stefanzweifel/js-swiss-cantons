@@ -1,7 +1,28 @@
-export default [
+export type Language = 'de' | 'fr' | 'it' | 'en' | 'rm' | 'es' | 'pt';
+
+export interface Canton {
+    /** Two-letter canton abbreviation, e.g. `ZH`. */
+    readonly abbreviation: string;
+    /** Canton name in each supported language. */
+    readonly names: Readonly<Record<Language, string>>;
+}
+
+// Freeze the data so a consumer that mutates a returned canton cannot corrupt
+// this shared, module-level singleton for the rest of the process. The
+// `readonly` types above give TypeScript callers the same guarantee at compile
+// time; the freeze enforces it at runtime for plain-JS callers.
+function deepFreeze(list: Canton[]): readonly Canton[] {
+    for (const canton of list) {
+        Object.freeze(canton.names);
+        Object.freeze(canton);
+    }
+    return Object.freeze(list);
+}
+
+export const cantons: readonly Canton[] = deepFreeze([
     {
         abbreviation: 'AG',
-        name: {
+        names: {
             de: 'Aargau',
             fr: 'Argovie',
             it: 'Argovia',
@@ -13,7 +34,7 @@ export default [
     },
     {
         abbreviation: 'AI',
-        name: {
+        names: {
             de: 'Appenzell Innerrhoden',
             fr: 'Appenzell Rhodes-Intérieures',
             it: 'Appenzello Interno',
@@ -25,7 +46,7 @@ export default [
     },
     {
         abbreviation: 'AR',
-        name: {
+        names: {
             de: 'Appenzell Ausserrhoden',
             fr: 'Appenzell Rhodes-Extérieures',
             it: 'Appenzello Esterno',
@@ -37,7 +58,7 @@ export default [
     },
     {
         abbreviation: 'BE',
-        name: {
+        names: {
             de: 'Bern',
             fr: 'Berne',
             it: 'Berna',
@@ -49,7 +70,7 @@ export default [
     },
     {
         abbreviation: 'BL',
-        name: {
+        names: {
             de: 'Basel-Landschaft',
             fr: 'Bâle-Campagne',
             it: 'Basilea Campagna',
@@ -61,7 +82,7 @@ export default [
     },
     {
         abbreviation: 'BS',
-        name: {
+        names: {
             de: 'Basel-Stadt',
             fr: 'Bâle-Ville',
             it: 'Basilea Città',
@@ -73,7 +94,7 @@ export default [
     },
     {
         abbreviation: 'FR',
-        name: {
+        names: {
             de: 'Freiburg',
             fr: 'Fribourg',
             it: 'Friburgo',
@@ -85,7 +106,7 @@ export default [
     },
     {
         abbreviation: 'GE',
-        name: {
+        names: {
             de: 'Genf',
             fr: 'Genève',
             it: 'Ginevra',
@@ -97,7 +118,7 @@ export default [
     },
     {
         abbreviation: 'GL',
-        name: {
+        names: {
             de: 'Glarus',
             fr: 'Glaris',
             it: 'Glarona',
@@ -109,7 +130,7 @@ export default [
     },
     {
         abbreviation: 'GR',
-        name: {
+        names: {
             de: 'Graubünden',
             fr: 'Grisons',
             it: 'Grigioni',
@@ -121,7 +142,7 @@ export default [
     },
     {
         abbreviation: 'JU',
-        name: {
+        names: {
             de: 'Jura',
             fr: 'Jura',
             it: 'Giura',
@@ -133,7 +154,7 @@ export default [
     },
     {
         abbreviation: 'LU',
-        name: {
+        names: {
             de: 'Luzern',
             fr: 'Lucerne',
             it: 'Lucerna',
@@ -145,7 +166,7 @@ export default [
     },
     {
         abbreviation: 'NE',
-        name: {
+        names: {
             de: 'Neuenburg',
             fr: 'Neuchâtel',
             it: 'Neuchâtel',
@@ -157,7 +178,7 @@ export default [
     },
     {
         abbreviation: 'NW',
-        name: {
+        names: {
             de: 'Nidwalden',
             fr: 'Nidwald',
             it: 'Nidvaldo',
@@ -169,7 +190,7 @@ export default [
     },
     {
         abbreviation: 'OW',
-        name: {
+        names: {
             de: 'Obwalden',
             fr: 'Obwald',
             it: 'Obvaldo',
@@ -181,7 +202,7 @@ export default [
     },
     {
         abbreviation: 'SG',
-        name: {
+        names: {
             de: 'St. Gallen',
             fr: 'Saint-Gall',
             it: 'San Gallo',
@@ -193,7 +214,7 @@ export default [
     },
     {
         abbreviation: 'SH',
-        name: {
+        names: {
             de: 'Schaffhausen',
             fr: 'Schaffhouse',
             it: 'Sciaffusa',
@@ -205,7 +226,7 @@ export default [
     },
     {
         abbreviation: 'SO',
-        name: {
+        names: {
             de: 'Solothurn',
             fr: 'Soleure',
             it: 'Soletta',
@@ -217,7 +238,7 @@ export default [
     },
     {
         abbreviation: 'SZ',
-        name: {
+        names: {
             de: 'Schwyz',
             fr: 'Schwytz',
             it: 'Svitto',
@@ -229,7 +250,7 @@ export default [
     },
     {
         abbreviation: 'TG',
-        name: {
+        names: {
             de: 'Thurgau',
             fr: 'Thurgovie',
             it: 'Turgovia',
@@ -241,7 +262,7 @@ export default [
     },
     {
         abbreviation: 'TI',
-        name: {
+        names: {
             de: 'Tessin',
             fr: 'Tessin',
             it: 'Ticino',
@@ -253,7 +274,7 @@ export default [
     },
     {
         abbreviation: 'UR',
-        name: {
+        names: {
             de: 'Uri',
             fr: 'Uri',
             it: 'Uri',
@@ -265,7 +286,7 @@ export default [
     },
     {
         abbreviation: 'VD',
-        name: {
+        names: {
             de: 'Waadt',
             fr: 'Vaud',
             it: 'Vaud',
@@ -277,7 +298,7 @@ export default [
     },
     {
         abbreviation: 'VS',
-        name: {
+        names: {
             de: 'Wallis',
             fr: 'Valais',
             it: 'Vallese',
@@ -289,7 +310,7 @@ export default [
     },
     {
         abbreviation: 'ZG',
-        name: {
+        names: {
             de: 'Zug',
             fr: 'Zoug',
             it: 'Zugo',
@@ -301,7 +322,7 @@ export default [
     },
     {
         abbreviation: 'ZH',
-        name: {
+        names: {
             de: 'Zürich',
             fr: 'Zurich',
             it: 'Zurigo',
@@ -311,4 +332,4 @@ export default [
             pt: 'Zurique',
         },
     },
-];
+]);
