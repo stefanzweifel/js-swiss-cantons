@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased](https://github.com/stefanzweifel/js-swiss-cantons/compare/v1.3.0...HEAD)
 
 ### Changed (breaking)
-- Replaced the class-based API with plain functions. See [MIGRATION.md](./MIGRATION.md).
+- Replaced the class-based API with plain functions. See [UPGRADING.md](./UPGRADING.md).
   - `CantonManager` → `getCanton` / `getCantonByAbbreviation` / `getCantonByName` / `getAllCantons`.
   - A canton is now a plain object (`{ abbreviation, names }`); `setLanguage()`/`getName()`
     are gone — read `canton.names.<lang>` directly.

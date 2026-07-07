@@ -7,7 +7,7 @@ city. Zero runtime dependencies, ESM-only, fully typed. (This is a port of
 [php-swiss-cantons](https://github.com/stefanzweifel/php-swiss-cantons).)
 
 > **Upgrading from v1?** The class-based API was replaced with plain functions in v2.
-> See [MIGRATION.md](./MIGRATION.md).
+> See [UPGRADING.md](./UPGRADING.md).
 
 ## Installation
 
