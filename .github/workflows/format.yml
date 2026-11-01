@@ -18,7 +18,7 @@ jobs:
     - name: Run Biome
       run: npm run format
 
-    - uses: stefanzweifel/git-auto-commit-action@v7.2.0
+    - uses: stefanzweifel/git-auto-commit-action@v7.2.1
       with:
         commit_message: Apply Biome formatting
         branch: ${{ github.head_ref }}
